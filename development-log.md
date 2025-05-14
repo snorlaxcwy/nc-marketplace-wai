@@ -6,7 +6,7 @@
 
 # Task 1 - Getting the Data
 
-![UI CHART - work in progress](https://file%2B.vscode-resource.vscode-cdn.net/Users/szewaiyan/northcoders/frontend/fe-nc-marketplace/public/UI_chart_WIP.png?version%3D1747223812534)
+UI : https://vscode.dev/github/snorlaxcwy/fe-nc-marketplace/blob/main/src/assets/UI.png
 
 - connect API
 - Endpoint API : https://nc-marketplace-2-g51j.onrender.com/docs/Basket/get-basket
