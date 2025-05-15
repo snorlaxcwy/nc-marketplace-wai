@@ -14,6 +14,5 @@ App
 │ └── SellPage ("/add")
 │ └── SellForm(=> sumbit form button)
 └── Footer
-
-├── Information
-└── Contact us
+│ │ └─ Information
+│ │ └─ Contact us

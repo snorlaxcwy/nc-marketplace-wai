@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="footer">
-      <button>Contact us on: marketplace@gmail.com</button>
+      <button>Contact Us</button>
     </footer>
   );
 }

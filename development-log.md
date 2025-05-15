@@ -22,3 +22,16 @@ UI : https://vscode.dev/github/snorlaxcwy/fe-nc-marketplace/blob/main/src/assets
   - PATCH
 
 # Task 2 - Wireframe
+
+categoreis:
+Electronics
+Clothing
+sdfdsf
+Furniture
+newcategory
+toys
+cloth
+slo
+kitchen
+cat1
+cat2

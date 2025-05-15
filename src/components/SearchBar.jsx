@@ -1,16 +1,20 @@
 // import { getProducts } from "../../";
 
-function SearchBar({ searchTerm, handleChange, setProductToFocus }) {
+function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
+  function handleChange(event) {
+    setSearchTerm(event.target.value);
+  }
+
   function handleClick(event) {
     event.preventDefault();
     onSearch();
-    // return getProducts(searchTerm)
-    // .then((data) => {
-    //     setProductToFocus(data)
-    // })
-    // .catch((err) => {
-    //     console.log(err)
-    // })
+    /*return getProducts(searchTerm)
+    .then((data) => {
+        setProductToFocus(data)
+    })
+    .catch((err) => {
+        console.log(err)
+    })*/
   }
 
   return (
@@ -23,9 +27,12 @@ function SearchBar({ searchTerm, handleChange, setProductToFocus }) {
           value={searchTerm}
           onChange={handleChange}
         />
-        <button onClick={handleClick} className="search-button"></button>
+        <button onClick={handleClick} className="search-button">
+          Search
+        </button>
       </form>
     </div>
   );
 }
+
 export default SearchBar;

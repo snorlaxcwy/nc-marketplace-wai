@@ -1,17 +1,15 @@
 import axios from "axios";
 
 const NCMarketplaceAPI = axios.create({
-    baseURL: "https://nc-marketplace-2-g51j.onrender.com/"
-})
+  baseURL: "https://nc-marketplace-2-g51j.onrender.com/api",
+});
 
-
-export const getProducts = (searchResult) => {
-    return dnd5eApi
-    .get(`/spells/${searchResult}`)
-    .then((response) => {
-        return response.data;
-    })
+export const getProducts = (searchTerm = "") => {
+  return NCMarketplaceAPI.get(`/items`, {
+    params: { name: searchTerm },
+  }).then((response) => {
+    return response.data.items;
+  });
 };
 
-
-similar to the abobe and install axios
+export default getProducts;

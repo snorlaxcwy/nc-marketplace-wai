@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,63 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+/* added by waiyan incase we forget the className done */
+.footer {
+  margin-top: 10rem;
+  padding: 200px;
+  background-color: #ffffff;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 1rem;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 2rem;
+  }
+}
+.display-all-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+.item-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+
+.item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.category-dropdown-selector{
+  background-color: #ffffff;
+}
+
+/* added by waiyan incase we forget the className done */
