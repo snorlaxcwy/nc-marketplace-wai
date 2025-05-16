@@ -1,77 +1,43 @@
-import { useState, useEffect } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import SearchBar from "./components/SearchBar";
-import ItemCard from "./components/ItemCard";
-import { getProducts } from "./api";
+import { Routes, Route, useNavigate, Link } from "react-router-dom";
+import { Container, AppBar, Toolbar, Typography, Button } from "@mui/material";
+import CategoryPage from "./pages/CategoryPage";
+import Sell from "./pages/Sell";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  // this is the dropdown selector/menu for categoreis
-  const categories = [
-    "All",
-    "Electronics",
-    "Clothing",
-    "sdfdsf",
-    "Furniture",
-    "newcategory",
-    "toys",
-    "cloth",
-    "slo",
-    "kitchen",
-    "cat1",
-    "cat2",
-  ];
-
-  useEffect(() => {
-    getProducts()
-      .then((data) => {
-        // console.log("Search result:", data);
-        setItems(data);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch items", err);
-      });
-  }, []); //<-- [] to aovid repeated call
-
-  function handleSearchClick() {
-    if (!searchTerm.trim()) return; // <- to avoid repeated empty search: 429 Too Many Requests
-    getProducts(searchTerm)
-      .then((data) => {
-        setItems(data);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch items:", err);
-      });
-  }
-
+  const nav = useNavigate();
   return (
-    <div className="main">
-      <Header />
-      {/* SEARCHBAR */}
-      <SearchBar
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        onSearch={handleSearchClick}
-      />
-      {/* DROPDOWN SELECTOR */}
-      <div className="category-dropdown-selector">
-        <select>
-          <option>Fashion</option>
-          <option>All</option>
-        </select>
-      </div>
-      {/* Display All Items */}
-      <div className="display-all-items">
-        {items.map((item) => (
-          <ItemCard key={item.item_id} item={item} />
-        ))}
-      </div>
+    <Container>
+      {/* AppBar */}
+      <AppBar position="sticky" width="100vh">
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component={Link}
+            to="/"
+            sx={{
+              flexGrow: 1,
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
+            NC Marketplace
+          </Typography>
+          <Button onClick={() => nav("/sell")}>SELL</Button>
+        </Toolbar>
+      </AppBar>
 
-      <Footer />
-    </div>
+      {/* Main */}
+      <Routes>
+        {/* Render HomePage & Sell Pages & 404 Error
+        prop = element, :name is params */}
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:name" element={<CategoryPage />} />
+        <Route path="/sell" element={<Sell />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Container>
   );
 }
 
